@@ -59,18 +59,6 @@ type Mutation {
 ```
 ## 📝 Ejemplo de consultas
 
-### Crear un producto
-```graphql
-mutation {
-  createProduct(title: "Laptop", category: "Electronics", price: 1200.99, stock: true) {
-    id
-    title
-    category
-    price
-    stock
-  }
-}`
-```
 ### Obtener todos los productos
 ```graphql
 query {
@@ -83,13 +71,41 @@ query {
   }
 }
 ```
+### Obtener un producto
+```graphql
+query {
+  product(id: "product-id") {
+    id
+    title
+    category
+    price
+    stock
+  }
+}
+```
+### Crear un producto
+```graphql
+mutation {
+  //Todos los campos son requeridos
+  createProduct(title: "title", category: "category", price: 00.0, stock: boolean) {
+    id
+    title
+    category
+    price
+    stock
+  }
+}
+```
 ### Actualizar un producto
 ```graphql
 mutation {
-  updateProduct(id: "product-id", title: "Updated Laptop", price: 1500) {
+  //El campo id es requerido, los campos a actualizar son opcionales
+  updateProduct(id: "product-id", title: "title-actualizado") {
     id
     title
+    category
     price
+    stock
   }
 }
 ```
@@ -99,9 +115,12 @@ mutation {
   deleteProduct(id: "product-id") {
     id
     title
+    category
+    price
+    stock
   }
 }
 ```
 ## 💡 Próximos pasos
-Implementar autenticación y autorización para proteger las operaciones.
-Añadir validación de datos en las entradas del usuario.
+1. Implementar autenticación y autorización para proteger las operaciones.
+2. Añadir validación de datos en las entradas del usuario.
