@@ -56,3 +56,52 @@ type Mutation {
   updateProduct(id: ID!, title: String, category: String, price: Float, stock: Boolean): Product
   deleteProduct(id: ID!): Product
 }
+```
+## 📝 Ejemplo de consultas
+
+### Crear un producto
+```graphql
+mutation {
+  createProduct(title: "Laptop", category: "Electronics", price: 1200.99, stock: true) {
+    id
+    title
+    category
+    price
+    stock
+  }
+}`
+```
+### Obtener todos los productos
+```graphql
+query {
+  products {
+    id
+    title
+    category
+    price
+    stock
+  }
+}
+```
+### Actualizar un producto
+```graphql
+mutation {
+  updateProduct(id: "product-id", title: "Updated Laptop", price: 1500) {
+    id
+    title
+    price
+  }
+}
+```
+### Eliminar un producto
+```graphql
+mutation {
+  deleteProduct(id: "product-id") {
+    id
+    title
+  }
+}
+```
+## 💡 Próximos pasos
+Implementar autenticación y autorización para proteger las operaciones.
+Añadir validación de datos en las entradas del usuario.
