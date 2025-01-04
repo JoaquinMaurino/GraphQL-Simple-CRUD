@@ -86,7 +86,7 @@ query {
 ### Crear un producto
 ```graphql
 mutation {
-  //Todos los campos son requeridos
+  #Todos los campos son requeridos
   createProduct(title: "title", category: "category", price: 00.0, stock: boolean) {
     id
     title
@@ -99,7 +99,7 @@ mutation {
 ### Actualizar un producto
 ```graphql
 mutation {
-  //El campo id es requerido, los campos a actualizar son opcionales
+  #El campo id es requerido, los campos a actualizar son opcionales
   updateProduct(id: "product-id", title: "title-actualizado") {
     id
     title
